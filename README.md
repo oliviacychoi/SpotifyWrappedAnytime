@@ -1,4 +1,4 @@
-# 🎵 SpotifyWrappedAnytime 
+# 🎵 Spotify Wrapped Anytime 
 
 Spotify Wrapped Anytime is a web application that lets you review your top songs at any time—no need to wait for Spotify's official year-end Wrapped! By leveraging the Spotify API, this app provides insights into your most-played songs over different time periods: past month, past 6 months, and past year.  
 
