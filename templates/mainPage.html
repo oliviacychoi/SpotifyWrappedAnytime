@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <title>{{ title }}</title>
+    </head>
+    <style>
+        body{
+            font-family: sans-serif;
+            color:#1ed760
+        }
+        .spotifyButton {
+            border: none;
+            border-radius: 10px;
+            background-color: #1ed760;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+
+    </style>
+    <body style="background-color: black;">
+        <center>
+            <h1 style="padding-top: 100px; padding-bottom: 50px;">Spotify Wrapped Anytime</h1>
+            <button class="spotifyButton" onclick="location.href = '/login';"><strong> Log in with Spotify</strong></button>
+        </center>
+    </body>
+    <footer>
+        <p style="position: absolute; bottom: 5px; right: 25px; color: white">created by oliviacychoi 2025</p>
+    </footer>
+</html>

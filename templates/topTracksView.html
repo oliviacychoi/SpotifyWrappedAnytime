@@ -1,0 +1,41 @@
+{% macro topTracksView(display_name, songs, id, duration) -%}
+
+<div class="topTracksView" id="{{ id }}">
+    <p class="period" style="padding-top: 10px;"><strong>
+        {{ duration }}
+    </strong></p>
+    <table class="tracks">
+        <thead>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </thead>
+    {% for song in songs %}
+        <tr>
+            <td class="begin">
+                {{ loop.index }}
+            </td>
+            <td class="img"><img style="width: 75px;" src=
+                {{song.album.images[0].url}}>
+            </td>
+            <td class="name">
+                {{ song.name }} - {{ song.artists[0].name }}
+            </td>
+            <td><a href={{song.external_urls.spotify}}>>
+                Listen
+            </a></td>
+        </tr>
+    {% endfor %}
+    </table>
+
+
+</div>
+
+{%- endmacro %}

@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>{{ title }}</title>
+</head>
+
+<style>
+    body{
+        background-color: black;
+        color: white;
+        font-family: sans-serif;
+    }
+    .topTracksView{
+        display: none;
+    }
+    .resultButton {
+            border: none;
+            border-radius: 10px;
+            background-color: #1ed760;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            }
+    a:link, a:visited {
+        color:#1ed760
+    }
+</style>
+
+{% from "topTracksView.html" import topTracksView with context %}
+<script>
+    function showContent(id) {
+        for (let i = 0; i < document.querySelectorAll(".topTracksView").length; i++) {
+            document.querySelectorAll(".topTracksView")[i].style.display = "none"
+        }
+        document.getElementById(id).style.display = 'inline-block'
+    }
+</script>
+
+<body>
+    <div style="color: #1ed760; padding-top: 10px">
+        <center>
+            <h1>Spotify Wrapped Anytime</h1>
+            <h2>Top Songs</h2>    
+        </center>
+    </div>
+
+
+    <div style="width: 100%; height: auto" class="buttons">
+        <center>
+            <div>
+                <button onclick="showContent('short_term_results')" class="resultButton">Past Month</button>
+                <button onclick="showContent('medium_term_results')" class="resultButton">Past 6 Months</button>
+                <button onclick="showContent('long_term_results')" class="resultButton">Past Year</button>
+            </div>
+        </center>
+    </div>
+
+    <div style="width: 100%; height: auto;" class="topTracksViewWrapper">
+        <center>
+            {{ topTracksView(user_display_name, short_term['items'], 'short_term_results', 'PAST MONTH') }}
+            {{ topTracksView(user_display_name, medium_term['items'], 'medium_term_results', 'PAST 6 MONTHS') }}
+            {{ topTracksView(user_display_name, long_term['items'], 'long_term_results', 'PAST YEAR') }}
+        </center>
+    </div>
+
+</body>
